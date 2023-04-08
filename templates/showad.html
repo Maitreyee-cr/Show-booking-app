@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/addshow/{{venue}}">
+        <div class="container">
+          <h1>Show</h1>
+          <p>Please fill in this form to create a show.</p>
+          <hr>
+      
+          <label for="showname"><b>Show Name</b></label>
+          <input type="text" placeholder="Enter Show name" name="showname" id="showname" required>
+      
+          <label for="start_time"><b>Start Time </b></label>
+          <input type="datetime-local" placeholder="Enter Start Time" name="start_time" id="start_time" required>
+
+          <label for="end-timing"><b>End Time </b></label>
+          <input type="datetime-local" placeholder="Enter End Time" name="end-time" id="end-time" required>
+
+          <label for="tags"><b>TAG</b></label>
+          <input type="text" placeholder="Enter tag" name="tags" id="tags" required>
+
+          <!-- <label for="date"><b>Date</b></label>
+          <input type="date" placeholder="Enter date" name="date" id="date" required> -->
+
+          <label for="ticket-price"><b>Ticket-price</b></label>
+          <input type="number" placeholder="Enter ticket-price" name="ticket-price" id="ticket-price" required>
+          
+          <hr>
+          
+          <!-- <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" id="name" required> -->
+
+          <!-- <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> -->
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+      
+        <div class="container signin">
+          <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+      </form>
+</body>
+</html>

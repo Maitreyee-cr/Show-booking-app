@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .my-div {
+          border-radius: 16px;
+          border: 1px solid red;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          margin: 20px;
+        }
+        
+        /* Style the text elements */
+        .my-text {
+          margin-bottom: 8px;
+        }
+        
+        /* Style the first row */
+        .first-row {
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        /* Style the second row */
+        .second-row {
+          display: flex;
+          justify-content: space-between;
+        }
+        
+                header{
+                    text-align:center;
+                }
+        
+                body{
+                    text-align: center;
+                }
+        
+                .add-btn {
+                      background-color: #007bff;
+                      border: none;
+                      color: white;
+                      padding: 16px 32px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                      margin: 4px 2px;
+                      transition-duration: 0.4s;
+                      cursor: pointer;
+                      border-radius: 100%;
+                    height: 20px;
+                    width: 20px;
+                    margin: auto;
+                }
+        
+                .add-btn:hover {
+                      background-color: #e9ecef;
+                    color: #000000;
+                }
+            </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <!-- <a href = "{{url_for('create_venue')}}">+</a> -->
+    <a href="{{url_for('mybookings',email=email)}}">See all your bookings here</a>
+    <a href="{{url_for('search_shows')}}">Search shows</a>
+    {% for venue in venues %}
+    <!-- <div class="my-div"> -->
+        <div class="my-div">
+            <div class="first-row">
+                <div class="my-text">{{ venue.name }}</div>
+                <div class="my-text">{{ venue.place }}</div>
+                <div class="my-text">Capacity: {{ venue.capacity }}</div>
+              </div>
+            <div class="second-row">
+                <!-- <a href="{{url_for('edit_venue',venue_id=venue.id)}}">Edit</a>
+                <a href="{{url_for('delete_venue',venue_id=venue.id)}}">Delete</a> -->
+            </div>
+            <!-- <a href="{{url_for('create_show',venue_id=venue.id)}}">+</a> -->
+                {% for show in shows[venue.id-1] %}
+                <div class="first-row">
+                    <div class="my-text">{{ show.name }}</div>
+                    <div class="my-text">{{ show.ticket_price }}</div>
+                    <div class="my-text"> {{ show.startTime }} to {{show.endTime}}</div>
+
+                  </div>
+                  <div class="second-row">
+                    <a href="{{url_for('userbooking',show_id=show.id)}}">Book</a>
+                    <div class="my-text">{{ show.tags }}</div>
+                    <a href="{{url_for('showanalytics',show_id=show.id)}}">Show Analytics</a>
+                    <!-- <a href="{{url_for('delete_show',show_id=show.id)}}">Delete</a> -->
+                </div>
+                    {% endfor %}
+        </div>
+    {% endfor %}
+    
+    </body>
+    </html>

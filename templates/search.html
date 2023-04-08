@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .my-div {
+          border-radius: 16px;
+          border: 1px solid red;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          margin: 20px;
+        }
+        
+        /* Style the text elements */
+        .my-text {
+          margin-bottom: 8px;
+        }
+        
+        /* Style the first row */
+        .first-row {
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        /* Style the second row */
+        .second-row {
+          display: flex;
+          justify-content: space-between;
+        }
+        
+                header{
+                    text-align:center;
+                }
+        
+                body{
+                    text-align: center;
+                }
+        
+                .add-btn {
+                      background-color: #007bff;
+                      border: none;
+                      color: white;
+                      padding: 16px 32px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                      margin: 4px 2px;
+                      transition-duration: 0.4s;
+                      cursor: pointer;
+                      border-radius: 100%;
+                    height: 20px;
+                    width: 20px;
+                    margin: auto;
+                }
+        
+                .add-btn:hover {
+                      background-color: #e9ecef;
+                    color: #000000;
+                }
+            </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    
+    <form method="POST" action="/search">
+        <div class="container">
+          
+          
+          <hr>
+      
+          <label for="search"><b>Search</b></label>
+          <input type="text" placeholder="Enter text" name="search" id="search" required>
+      
+          
+          <hr>
+          
+          
+          <button type="submit" class="registerbtn">Search</button>
+        </div>
+      
+        
+      </form>
+    <a href="{{url_for('search_shows')}}">Search shows</a>
+    {% for show in showlist %}
+    <!-- <div class="my-div"> -->
+        <div class="my-div">
+            <div class="first-row">
+                <div class="my-text">{{ show.name }}</div>
+                <div class="my-text">{{ show.tags }}</div>
+                <div class="my-text"> {{ show.date }}</div>
+              </div>
+            
+            
+               
+        </div>
+    {% endfor %}
+    {% for show in showtags %}
+    <!-- <div class="my-div"> -->
+        <div class="my-div">
+            <div class="first-row">
+                <div class="my-text">{{ show.name }}</div>
+                <div class="my-text">{{ show.tags }}</div>
+                <div class="my-text"> {{ show.date }}</div>
+              </div>
+            
+        </div>
+    {% endfor %}
+    
+    </body>
+    </html>

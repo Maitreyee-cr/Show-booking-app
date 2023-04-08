@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Seats left={{seatsleft}}</div>
+    <form action="{{url_for('userbooking',show_id=show_id)}}" method="post">
+        <div class="imgcontainer">
+          <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+      
+        <div class="container">
+          <label for="ticket"><b>Number</b></label>
+          <input type="number" placeholder="Enter Number of ticket" name="ticket" required max="{{seatsleft}}">
+          
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter email" name="email" required>
+          <!-- <label for="prc"><b>Price</b></label>
+          <input type="number" placeholder="Enter price of ticket" name="prc" required>
+
+          <label for="tot"><b>Total</b></label>
+          <input type="number" placeholder="Enter total" name="tot" required>
+       -->
+          <button type="submit">Confirm booking</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+        </div>
+      </form>
+    
+</body>
+</html>
